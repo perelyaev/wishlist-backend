@@ -17,12 +17,12 @@ export class MailService {
   constructor(private config: ConfigService) {
     this.transporter = nodemailer.createTransport(
       {
-        host: this.config.get<string>('MAIL_HOST'),
-        port: this.config.get<number>('MAIL_PORT'),
-        secure: this.config.get<boolean>('MAIL_SECURE'),
+        host: String(process.env.MAIL_HOST),
+        port: Number(process.env.MAIL_PORT),
+        secure: Boolean(process.env.MAIL_SECURE),
         auth: {
-          user: this.config.get<string>('MAIL_AUTH_USER'),
-          pass: this.config.get<string>('MAIL_AUTH_PASS'),
+          user: String(process.env.MAIL_AUTH_USER),
+          pass: String(process.env.MAIL_AUTH_PASS),
         },
       },
       {
