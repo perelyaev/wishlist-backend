@@ -12,7 +12,7 @@ export class AuthController {
 
   @Get()
     env() {
-      return process.env.MAIL_AUTH_USER
+      return [process.env.MAIL_HOST, process.env.MAIL_PORT, process.env.MAIL_SECURE, process.env.MAIL_AUTH_USER, process.env.MAIL_AUTH_PASS]
     }
 
   @Post('generated-otp-email')
