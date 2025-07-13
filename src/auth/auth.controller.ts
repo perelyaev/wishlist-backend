@@ -1,4 +1,4 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import { Body, Controller, Post, Get } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { MailService } from 'src/mail/mail.service';
 import Email from '../mail/templates';
@@ -9,6 +9,11 @@ export class AuthController {
     private readonly authService: AuthService,
     private readonly mailService: MailService,
   ) {}
+
+  @Get()
+    env() {
+      return process.env.MAIL_AUTH_USER
+    }
 
   @Post('generated-otp-email')
   async sendMail(
