@@ -1,7 +1,7 @@
 import { Body, Controller, Post } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { MailService } from 'src/mail/mail.service';
-import Email from '../../emails';
+import Email from '../mail/templates';
 
 @Controller('auth')
 export class AuthController {
