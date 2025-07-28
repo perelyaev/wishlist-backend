@@ -24,6 +24,9 @@ export class MailService {
           user: String(process.env.MAIL_AUTH_USER),
           pass: String(process.env.MAIL_AUTH_PASS),
         },
+        tls: {
+          rejectUnauthorized: false
+        }
       },
       {
         from: {
