@@ -11,9 +11,15 @@ export class AuthController {
   ) {}
 
   @Get()
-    env() {
-      return [process.env.MAIL_HOST, process.env.MAIL_PORT, process.env.MAIL_SECURE, process.env.MAIL_AUTH_USER, process.env.MAIL_AUTH_PASS]
-    }
+  env() {
+    return [
+      process.env.MAIL_HOST,
+      process.env.MAIL_PORT,
+      process.env.MAIL_SECURE,
+      process.env.MAIL_AUTH_USER,
+      process.env.MAIL_AUTH_PASS,
+    ];
+  }
 
   @Post('generated-otp-email')
   async sendMail(
@@ -21,7 +27,7 @@ export class AuthController {
   ): Promise<string> {
     await this.mailService.sendMail({
       ...sendMailDto,
-      template: Email({ url: 'http://example.com' }),
+      template: Email('https://ya.ru'),
     });
 
     return 'Email sent successfully';
